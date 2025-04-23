@@ -21,8 +21,18 @@ pip install -r requirements.txt
 Dataset: https://www.kaggle.com/datasets/pkdarabi/bone-fracture-detection-computer-vision-project/data
 
 
-OPTION 1(From Scratch):
-Download the dataset and use augment.py to increase the contrast and brighntess of the images. Change the train directory in the data.yaml file to the new augmented directory.
+Download the dataset and extract the valid, test, and train folders to the working directory. 
+
+Use augment.py to increase the contrast and brighntess of the images. Change the train directory in the data.yaml file to the new augmented directory.
+
+```bash
+python augment.py --input-img train/images \
+                  --input-label train/labels \
+                  --output-img train_aug/images \
+                  --output-label train_aug/labels \
+                  --contrast 1.2 \
+                  --brightness 30
+```
 
 To run the hyperparameter tuning script:
 ```bash
@@ -33,12 +43,6 @@ python test.py --tune
 After enter the best hyperparameters into test.py
 
 To run training script:
-```bash
-python test.py
-```
-
-OPTION 2 (Use already modified hyperparameters and dataset):
-Navigate to working directory and run
 ```bash
 python test.py
 ```
